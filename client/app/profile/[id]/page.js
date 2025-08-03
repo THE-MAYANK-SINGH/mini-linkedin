@@ -15,7 +15,7 @@ export default function ProfilePage({ params: paramsPromise }) {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch(`http://localhost:5001/api/users/${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`);
       const data = await res.json();
       setUser(data.user);
       setPosts(data.posts.reverse());

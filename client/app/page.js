@@ -20,7 +20,7 @@ export default function HomePage() {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch("http://localhost:5001/api/posts");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`);
       const data = await res.json();
       setPosts(data.reverse());
     } catch (err) {
@@ -36,7 +36,7 @@ export default function HomePage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5001/api/posts", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
